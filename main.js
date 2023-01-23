@@ -30,7 +30,7 @@ material.wireframe = false;
 
 const cloudMaterial = new THREE.MeshStandardMaterial();
 cloudMaterial.transparent = true;
-cloudMaterial.opacity = 0.5;
+cloudMaterial.opacity = 0.4;
 cloudMaterial.map = cloudTexture;
 cloudMaterial.depthWrite = true;
 cloudMaterial.side = THREE.DoubleSide;
@@ -47,8 +47,8 @@ scene.add(cloudSphere);
 // Lights
 
 const pointLight = new THREE.PointLight(0xffffff, 0.1);
-pointLight.position.set(5, 5, 12);
-pointLight.intensity = 1.3;
+pointLight.position.set(5, 3, 6);
+pointLight.intensity = 1.2;
 
 scene.add(pointLight);
 
