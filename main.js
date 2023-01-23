@@ -1,5 +1,6 @@
 import './style.css';
 import * as THREE from 'three';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 //import * as dat from 'dat.gui';
 
 // Debug
@@ -7,7 +8,7 @@ import * as THREE from 'three';
 
 //Loading
 const textureLoader = new THREE.TextureLoader();
-const normalTexture = textureLoader.load('./textures/earthnormalmap.jpg');
+const normalTexture = textureLoader.load('./textures/newnormalmap.webp');
 const dayTexture = textureLoader.load('./textures/earthtexturemapday.jpg');
 const canvas = document.querySelector('canvas.webgl');
 const scene = new THREE.Scene();
@@ -32,7 +33,7 @@ scene.add(sphere);
 // Lights
 
 const pointLight = new THREE.PointLight(0xffffff, 0.1);
-pointLight.position.set(10, 5, 5);
+pointLight.position.set(5, 5, 5);
 pointLight.intensity = 100;
 
 scene.add(pointLight);
@@ -74,6 +75,9 @@ const renderer = new THREE.WebGLRenderer({
 renderer.setSize(sizes.width, sizes.height);
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
+const controls = new OrbitControls( camera, renderer.domElement );
+controls.autoRotate = false;
+controls.enablePan = false;
 
 // Animate
 let mouseX = 0;
@@ -99,6 +103,8 @@ const tick = () => {
     sphere.rotation.y += 0.5 * (targetX - sphere.rotation.y);
     sphere.rotation.x += 0.5 * (targetY - sphere.rotation.x);
     sphere.rotation.z += 0.5 * (targetY - sphere.rotation.x);
+
+    controls.update();
 
     renderer.render(scene, camera);
     window.requestAnimationFrame(tick);
