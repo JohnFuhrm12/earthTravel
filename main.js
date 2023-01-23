@@ -9,10 +9,10 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 //Loading
 const textureLoader = new THREE.TextureLoader();
 
-const normalTexture = textureLoader.load('./textures/newnormalmap.webp');
+const normalTexture = textureLoader.load('./textures/normalMap.jpg');
 const dayTexture = textureLoader.load('./textures/earthMap8K.jpg');
 const cloudTexture = textureLoader.load('./textures/cloudsMap4k.jpg');
-const spaceTexture = textureLoader.load('./textures/space.webp');
+const spaceTexture = textureLoader.load('./textures/space.jpg');
 
 const canvas = document.querySelector('canvas.webgl');
 const scene = new THREE.Scene();
@@ -20,11 +20,11 @@ const scene = new THREE.Scene();
 scene.background = spaceTexture;
 
 // Objects
-const geometry = new THREE.SphereGeometry(0.8, 32, 32);
-const cloudGeometry = new THREE.SphereGeometry(0.805, 32, 32);
+const geometry = new THREE.SphereGeometry(0.8, 64, 64);
+const cloudGeometry = new THREE.SphereGeometry(0.805, 64, 64);
 
 const material = new THREE.MeshStandardMaterial();
-//material.normalMap = normalTexture;
+material.normalMap = normalTexture;
 material.map = dayTexture;
 material.wireframe = false;
 
@@ -112,17 +112,17 @@ const tick = () => {
     const elapsedTime = clock.getElapsedTime();
 
     // Update objects
-    //sphere.rotation.y = 0.3 * elapsedTime;
+    sphere.rotation.y = 0.1 * elapsedTime;
 
-    //sphere.rotation.y += 0.3 * (targetX - sphere.rotation.y);
-    //sphere.rotation.x += 0.3 * (targetY - sphere.rotation.x);
-    //sphere.rotation.z += 0.3* (targetY - sphere.rotation.x);
+    sphere.rotation.y += 0.1 * (targetX - sphere.rotation.y);
+    sphere.rotation.x += 0.1 * (targetY - sphere.rotation.x);
+    sphere.rotation.z += 0.1* (targetY - sphere.rotation.x);
 
-    //cloudSphere.rotation.y = 0.3 * elapsedTime;
+    cloudSphere.rotation.y = 0.1 * elapsedTime;
 
-    //cloudSphere.rotation.y += 0.3 * (targetX - sphere.rotation.y);
-    //cloudSphere.rotation.x += 0.3 * (targetY - sphere.rotation.x);
-    //cloudSphere.rotation.z += 0.3 * (targetY - sphere.rotation.x);
+    cloudSphere.rotation.y += 0.1 * (targetX - sphere.rotation.y);
+    cloudSphere.rotation.x += 0.1 * (targetY - sphere.rotation.x);
+    cloudSphere.rotation.z += 0.1 * (targetY - sphere.rotation.x);
 
     controls.update();
 
