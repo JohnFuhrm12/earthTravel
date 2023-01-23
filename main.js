@@ -47,8 +47,8 @@ scene.add(cloudSphere);
 // Lights
 
 const pointLight = new THREE.PointLight(0xffffff, 0.1);
-pointLight.position.set(5, 5, 5);
-pointLight.intensity = 1;
+pointLight.position.set(5, 5, 12);
+pointLight.intensity = 1.3;
 
 scene.add(pointLight);
 
