@@ -17,8 +17,6 @@ const scene = new THREE.Scene();
 const geometry = new THREE.SphereGeometry(0.8, 120, 120);
 
 const material = new THREE.MeshStandardMaterial();
-material.metalness = 1;
-material.roughness = 0.2;
 material.normalMap = normalTexture;
 material.map = dayTexture;
 material.wireframe = false;
@@ -34,7 +32,7 @@ scene.add(sphere);
 
 const pointLight = new THREE.PointLight(0xffffff, 0.1);
 pointLight.position.set(5, 5, 5);
-pointLight.intensity = 100;
+pointLight.intensity = 1;
 
 scene.add(pointLight);
 
