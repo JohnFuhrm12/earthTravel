@@ -181,10 +181,8 @@ rotationButton.addEventListener("click", toggleRotation);
 function toggleRotation() {
     if (rotating) {
         rotating = false;
-        rotationButton.innerHTML = 'Start Rotation';
     } else {
         rotating = true;
-        rotationButton.innerHTML = 'Stop Rotation';
     };
 };
 
@@ -198,6 +196,18 @@ function mapToGlobe() {
     src = "data:image/svg+xml;base64," + base64;
     svgMap = textureLoader.load(src);
     material.map = svgMap;
+    document.documentElement.scrollTo({ top:0, behavior:'smooth'});
+};
+
+const traveledButton = document.querySelector('#traveledBtn');
+traveledButton.addEventListener("click", goToTraveled);
+
+const traveledSection = document.querySelector('#travledSection');
+
+function goToTraveled() {
+    traveledSection.style.display = 'block';
+    const traveledSectionTop = document.querySelector('#travledSection').offsetTop;
+    window.scrollTo({ top: traveledSectionTop, behavior: 'smooth'});
 };
 
 const countryCodes = {
@@ -388,5 +398,9 @@ function showCountryName(e) {
 
 function clickHandler(e){
     let fillColor = "lime";
-    e.target.style.fill = fillColor;
+    if (e.target.style.fill == fillColor) {
+        e.target.style.fill = null;
+    } else {
+        e.target.style.fill = fillColor;
+    };
   };
