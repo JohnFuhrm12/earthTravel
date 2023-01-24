@@ -17,7 +17,19 @@
       </div>
       <div id="travledSection" class="svgContainer">
         <h2 id="countryName" class="title">Selected Country: None</h2>
-        <button id="mapBtn">Map To Earth</button>
+        <div class="traveledRow">
+          <div class="buttonsRow">
+            <button class="mapBtn" id="clearBtn">Clear Selection</button>
+            <button class="mapBtn" id="mapBtn">Map To Earth</button>
+          </div>
+          <div class="mapKeysContainer">
+            <h2 class="mapKeyTitle">Key:</h2>
+            <h2 class="mapKeySubTitle">Traveled To</h2>
+            <button class="mapKeyColor"></button>
+            <h2 class="mapKeySubTitle">Lived In</h2>
+            <button class="mapKeyColor" id="livedIn"></button>
+          </div>
+        </div>
 <svg
    xmlns:dc="http://purl.org/dc/elements/1.1/"
    xmlns:cc="http://creativecommons.org/ns#"
@@ -117,7 +129,7 @@
 {
    opacity: 1;
    color: #000000;
-   fill:rgb(1, 1, 98);
+   fill:#000000;
    fill-opacity:1;
    fill-rule:nonzero;
    stroke:#000000;

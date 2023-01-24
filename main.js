@@ -158,6 +158,7 @@ const tick = () => {
 
 tick();
 
+// Button Functions
 const nightButton = document.querySelector('#nightBtn');
 nightButton.addEventListener("click", changeToNight);
 
@@ -195,6 +196,11 @@ const mapButton = document.querySelector('#mapBtn');
 mapButton.addEventListener("click", mapToGlobe);
 
 function mapToGlobe() {
+    const ocean = document.querySelector('.ocean');
+    const lakes = document.querySelector('.lake');
+    ocean.style.fill = 'rgb(1, 1, 98)';
+    lakes.style.fill = 'rgb(1, 1, 98)';
+
     svgFromHTML = document.getElementById('svgMap');
     svgData = (new XMLSerializer()).serializeToString(svgFromHTML);
     base64 = window.btoa(unescape(encodeURIComponent(svgData)));
@@ -214,11 +220,27 @@ traveledButton.addEventListener("click", goToTraveled);
 const traveledSection = document.querySelector('#travledSection');
 
 function goToTraveled() {
+    const ocean = document.querySelector('.ocean');
+    const lakes = document.querySelector('.lake');
+    ocean.style.fill = 'black';
+    lakes.style.fill = 'black';
+
     traveledSection.style.display = 'block';
     const traveledSectionTop = document.querySelector('#travledSection').offsetTop;
     window.scrollTo({ top: traveledSectionTop, behavior: 'smooth'});
 };
 
+const clearButton = document.querySelector('#clearBtn');
+clearButton.addEventListener("click", clearSelection);
+
+function clearSelection() {
+    const paths = document.querySelectorAll('path');
+    paths.forEach((path) => {
+        path.style.fill = null;
+    });
+};
+
+// SVG Map Event Listeners
 const countryCodes = {
     "AF": "Afghanistan",
     "AL": "Albania",
@@ -503,8 +525,11 @@ function showCountryName(e) {
 
 function clickHandler(e){
     let fillColor = 'lime';
+    let secondFillColor = 'green';
 
     if (e.target.style.fill == fillColor) {
+        e.target.style.fill = secondFillColor;
+    } else if (e.target.style.fill == secondFillColor) {
         e.target.style.fill = null;
     } else if (e.target.style.fill !== fillColor && !e.target.classList.contains('ocean')) {
         e.target.style.fill = fillColor;

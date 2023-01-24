@@ -39,8 +39,22 @@ html, body {
   transition: 0.5s;
 }
 
-#mapBtn {
+.traveledRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   margin-left: 4%;
+  margin-right: 4%;
+}
+
+.buttonsRow {
+  display: flex;
+  flex-direction: row;
+  width: 60%;
+}
+
+.mapBtn {
+  margin-right: 2%;
   margin-bottom: 2%;
   font-size: 15px;
   padding: 0.8%;
@@ -52,7 +66,7 @@ html, body {
   color: white;
 }
 
-#mapBtn:hover {
+.mapBtn:hover {
   transform: translateY(-2px);
   transition: 0.5s;
 }
@@ -79,8 +93,8 @@ path:hover {
 }
 
 .ocean:hover {
-  fill: rgb(1, 1, 98);
-  stroke: rgb(1, 1, 98);
+  fill: black;
+  stroke: black;
   stroke-width: 0px;
   cursor: default;
 }
@@ -89,4 +103,34 @@ path:hover {
   color: white;
   text-align: center;
   margin-bottom: 0%;
+}
+
+.mapKeysContainer {
+  display: flex;
+  flex-direction: row;
+  width: 30%;
+}
+
+.mapKeyTitle {
+  color: white;
+}
+
+.mapKeySubTitle {
+  color: white;
+  font-size: 15px;
+  margin-top: 25px;
+  margin-left: 3%;
+  margin-right: 3%;
+}
+
+.mapKeyColor {
+  background-color: lime;
+  border: solid 3px white;
+  width: 20px;
+  height: 20px;
+  margin-top: 22px;
+}
+
+#livedIn {
+  background-color: green;
 }
