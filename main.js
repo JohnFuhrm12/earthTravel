@@ -16,7 +16,11 @@ const cloudTexture = textureLoader.load('./textures/cloudsMap4k.jpg');
 const spaceTexture = textureLoader.load('./textures/space2.jpg');
 const specularMap = textureLoader.load('./textures/specularMap.jpg');
 
-// const svgMap = textureLoader.load('./textures/worldSVGMap.svg');
+let svgFromHTML = document.getElementById('svgMap');
+let svgData = (new XMLSerializer()).serializeToString(svgFromHTML);
+let base64 = window.btoa(unescape(encodeURIComponent(svgData)));
+let src = "data:image/svg+xml;base64," + base64;
+let svgMap = textureLoader.load(src);
 
 const canvas = document.querySelector('canvas.webgl');
 const scene = new THREE.Scene();
@@ -182,6 +186,18 @@ function toggleRotation() {
         rotating = true;
         rotationButton.innerHTML = 'Stop Rotation';
     };
+};
+
+const mapButton = document.querySelector('#mapBtn');
+mapButton.addEventListener("click", mapToGlobe);
+
+function mapToGlobe() {
+    svgFromHTML = document.getElementById('svgMap');
+    svgData = (new XMLSerializer()).serializeToString(svgFromHTML);
+    base64 = window.btoa(unescape(encodeURIComponent(svgData)));
+    src = "data:image/svg+xml;base64," + base64;
+    svgMap = textureLoader.load(src);
+    material.map = svgMap;
 };
 
 const countryCodes = {
