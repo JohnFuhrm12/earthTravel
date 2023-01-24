@@ -134,3 +134,63 @@ path:hover {
 #livedIn {
   background-color: green;
 }
+
+@media (max-width: 650px) {
+  .buttonsWrapper button {
+    font-size: 14px;
+    margin-top: 10%;
+  }
+
+  .traveledRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-left: 4%;
+    margin-right: 4%;
+  }
+  
+  .buttonsRow {
+    display: flex;
+    flex-direction: row;
+    width: 40%;
+  }
+
+  .mapBtn {
+    margin-right: 10%;
+    margin-top: 20%;
+    font-size: 12px;
+    padding: 5px;
+  }
+
+  #svgMap {
+    margin-top: -30%;
+  }
+
+  .svgContainer {
+    margin-top: 200%;
+    margin-bottom: 2%;
+  }
+
+  .mapKeysContainer {
+    display: flex;
+    flex-direction: row;
+    width: 60%;
+  }
+
+  .mapKeyTitle {
+    font-size: 14px;
+    margin-top: 57px;
+  }
+  
+  .mapKeySubTitle {
+    color: white;
+    font-size: 12px;
+    margin-top: 60px;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  
+  .mapKeyColor {
+    margin-top: 55px;
+  }
+}
