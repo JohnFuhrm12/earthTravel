@@ -531,7 +531,7 @@ function clickHandler(e){
         e.target.style.fill = secondFillColor;
     } else if (e.target.style.fill == secondFillColor) {
         e.target.style.fill = null;
-    } else if (e.target.style.fill !== fillColor && !e.target.classList.contains('ocean')) {
+    } else if (e.target.style.fill !== fillColor && e.target.style.fill !== secondFillColor && !e.target.classList.contains('ocean')) {
         e.target.style.fill = fillColor;
     };
 
