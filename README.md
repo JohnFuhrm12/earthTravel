@@ -2,7 +2,7 @@
 
 A rotating 3-D model of Earth. Can toggle Day/Night and Rotation, as well as turn the planet and zoom in or out.
 
-In addition, there is an SVG map of every country, each of which can be toggled to "Traveled To" and "Lived In" or a defualt blank state.
+In addition, there is an SVG map of every country, each of which can be toggled to "Traveled To" and "Lived In" or a default blank state.
 This SVG can then be mapped directly onto the Earth model to show a 3-D model of every country the user has been to or lived in.
 
 Made with Vanilla Js and Vite with Three.js. Deployed to Netlify.
